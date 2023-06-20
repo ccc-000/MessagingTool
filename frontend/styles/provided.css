@@ -1,0 +1,150 @@
+
+/* base styles, feel free to edit */
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+    height: 100%;
+    font-family: -apple-system, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hide {
+    display: none;
+}
+
+.banner {
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+
+span.class1 {
+    color: darkblue;
+}
+span.class1:hover {
+    cursor: pointer;
+    color: blue;
+    background: #f6f6f6;
+}
+
+.list-group {
+    width: 30vw;
+    margin-left: 20px;
+}
+
+.btn {
+    margin-left: 20px;
+}
+
+.inviteClass {
+    width: 20vw;
+}
+
+.messageClass {
+    margin-left: 350px;
+    margin-top: -200px;
+}
+
+.message_part_head_class {
+    margin-left: 100px;
+}
+
+.btn-warning {
+    margin-top: -150px;
+    margin-left: 300px;
+}
+
+.badge:hover {
+    cursor: pointer;
+}
+
+.react {
+    float: right;
+    margin: 5px;
+}
+.badge {
+    padding-left: 70em;
+}
+
+.modal-box-title {
+    display: block;
+    text-align: center;
+    font-size: 1.3rem;
+    float: left;
+}
+
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    background-color: white;
+    color: #a5a5a5;
+    /*outline: none;*/
+}
+
+
+.modal-box {
+    position: fixed;
+    width: 20rem;
+    background-color: white;
+    top: 0;
+    left: 0;
+    margin-top: 8rem;
+    border-radius: 7px;
+    /*解决高度塌陷的问题*/
+    overflow: hidden;
+    /*z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面*/
+    /*比如在fixed定位中，z-index100大小的会覆盖在50大小的上面*/
+    z-index: 111;
+    /*用display的话没有物理宽高  便于js控制*/
+    /*visibility: hidden;先不要加  否则浏览器不会显示出来，*/
+    /* visibility: hidden; */
+}
+        
+
+.modal-min {
+    width: 15rem;
+}
+    
+
+.modal-max {
+    width: 40rem;
+}
+    
+
+.modal-box-top {
+    position: relative;
+    width: 100%;
+    height: 3rem;
+    border-bottom: 1px solid #cccccc;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+    
+
+.modal-box-content {
+    width: 100%;
+    height: 16rem;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+    
+
+.modal-box-bottom {
+    width: 100%;
+    height: 4rem;
+    border-top: 1px solid #cccccc;
+    padding: 0.5rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}

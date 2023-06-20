@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+  <script type="module" src="src/helpers.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- This is an example app structure, you can modify this as much as you choose -->
+  <header class="banner">
+    <h1>Slackr</h1>
+  </header>
+  <main role="main">
+    <!-- app goes here -->
+    <div id="logout">
+      <span class="class1" id="a_login">Login</span> | <span class="class1" id="a_register">Register</span><hr>
+      <section id="Login">
+        <h1>Login</h1>
+        <label for="email"> Email:</label><br>
+        <input type="text" id="login_email" value="mia@email.com"><br>
+        <label for="passward"> Password:</label><br>
+        <input type="password" id="login_password" value="solongbouldercity"><br>
+        <button type="submit" id="LoginAct">Login</button>
+      </section>
+    
+      <section id="Register" class="hide">
+        <h1>Register</h1>
+        <label for="email"> Email:</label><br>
+        <input type="text" id="register_email" value="a"><br>
+        <label for="username"> Username:</label><br>
+        <input type="text" id="register_username" value="b"><br>
+        <label for="span"> Password:</label><br>
+        <input type="password" id="register_password" value="c"><br>
+        
+        <button type="submit" id="RegisterAct">Register</button>
+      </section>
+    </div>
+
+    <div id="logged_in" class="hide loginClass"><br>
+
+      <button id="LogoutAct" class="btn btn-secondary btn-sm">Logout</button><br>
+      <nav class="navbar navbar-dark bg-primary">
+        <!-- Navbar content -->
+        <div id="createButton">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Create A New Channel</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" data-bs-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="ModalLabel">Create New Channel</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form id="radio-form">
+                    <div class="mb-3">
+                      <label for="recipient-name" class="col-form-label" id="channel_name_label">Channel Name:</label>
+                      <input type="text" class="form-control" id="channel_name">
+                    </div>
+                    <div class="form-check" id="radio1">
+                      <input class="form-check-input" type="radio" name="channelCheck" id="publicCheck">
+                      <label class="form-check-label" for="flexRadioDefault1" id="radio-lable">
+                        Public channel
+                      </label>
+                    </div>
+                    <div class="form-check" id="radio2">
+                      <input class="form-check-input" type="radio" name="channelCheck" id="privateCheck">
+                      <label class="form-check-label" for="flexRadioDefault2">
+                        Private channel
+                      </label>
+                    </div>
+                    <div class="mb-3">
+                      <label for="message-text" class="col-form-label">Channel Description:</label>
+                      <textarea class="form-control" id="channel_description" placeholder="Enter Description"></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                  <button type="button" id="create_newChaneel" class="btn btn-primary">Create</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+   
+        <div id="updateButton" class="hide">                   
+                  
+          <button type="button" class="btn btn-primary btn-sm">Edit Channel</button>
+          <div class="modal-box" >
+            
+              <div class="modal-dialog">
+                <div class="modal-box-top">
+                  <div class="modal-title fs-5">Edit Channel</div>
+                  <button onclick="modalClose()" class="modal-close">&times;
+                  </button>
+                </div>
+                  <!--主体-->
+                  <div class="modal-box-content">
+                    <div class="mb-3">
+                      <label class="col-form-label">New Channel Name:</label>
+                      <input type="text" class="form-control" id="new-channel_name">
+                    </div>
+                    <div class="mb-3">
+                      <label class="col-form-label">Channel Description:</label>
+                      <textarea class="form-control" id="new-channel_description" placeholder=""></textarea>
+                    </div>
+                  </div>
+                  <!--底部-->
+                  <!-- <div class="modal-box-bottom">
+                  </div> -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancle</button>
+                    <button type="button" id="edit-submit" class="btn btn-primary">Edit</button>
+                  </div>
+              </div>
+
+          </div>
+
+          <button id="leaveChannelButton" class="btn btn-primary btn-sm">Leave This Channel</button>
+        </div>
+        
+        </div>
+        
+        
+      </nav>
+      <!-- <hr class="border border-primary border-3 opacity-75"> -->
+      
+      <div id="channels">
+        <div role="tabpanel">
+          <!-- List group -->
+          <div class="list-group" id="myList" role="tablist">
+
+          </div>
+        </div>
+
+
+      </div>
+      
+      <div id="channelDetails" class="hide">
+
+      </div>
+
+  
+        
+    
+      <div id="joinChannel" class="hide">
+        <button id="joinButton">Join</button>
+      </div>
+
+      <div id="invite" class="hide">
+        <label>Invite another user to this channel:</label><br>
+        <input id="inviteInput" type="number" class="inviteClass" placeholder="UserID" aria-label="Username" aria-describedby="basic-addon1"><br>
+        <button id="inviteButton" type="submit" class="btn btn-primary btn-sm">Invite</button>
+      </div>
+
+      <div id="channel_message" class="hide messageClass">
+        <div id="channel-message-part">
+          <div class="form-floating">
+            <textarea id="message_text" class="form-control" placeholder="Leave messages here" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea">New message</label>
+          </div>
+          <button id="message_send" class="btn btn-outline-primary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Send</button><br>
+
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" id="offcanvasBody">
+              ...
+            </div>
+          </div>
+          
+          
+        </div>
+        <div id="message_part">
+          
+        </div>
+        
+      </div>
+    
+    
+    
+    </div>
+
+    
+
+
+  </main>
+  <footer>
+    <p>&copy; Slackr</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script type="module" src="src/main.js"></script>
+</body>
+
+</html>
