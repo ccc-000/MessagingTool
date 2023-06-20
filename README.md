@@ -1,4 +1,4 @@
-# Assessment 2 - Vanilla JS: Slackr
+# Messaging Tool - Vanilla JS: Slackr
 
 1. Background & Motivation
 2. The Task
